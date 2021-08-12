@@ -24,7 +24,6 @@ function debounce(func, wait = 20, immediate = true) {
         const imageBottom = sliderImage.offsetTop + sliderImage.height;
         const isHalfShown = slideInAt > sliderImage.offsetTop;
         const isNotScrolledPast = window.scrollY < imageBottom;
-        console.log(imageBottom);
 
         if(isHalfShown && isNotScrolledPast) {
           sliderImage.classList.add('active');
@@ -34,6 +33,6 @@ function debounce(func, wait = 20, immediate = true) {
       });
   }
 
-  window.addEventListener('scroll', checkSlider);
+  window.addEventListener('scroll', debounce(checkSlider));
 
   
